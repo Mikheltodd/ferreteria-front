@@ -2,19 +2,24 @@
   <div id="Account">
     <div class="container">
       <h2>
-        Titular Cuenta: <span>{{ username }}</span>
+        Vendedor <span>{{ username }}</span>
       </h2>
       <h2>
-        Saldo: <span>${{ accountByUserId.balance }} COP</span>
+        Cantidad: <span>${{ getProduct.quantity }} </span>
       </h2>
       <h2>
-        Fecha Ultimo Movimiento:
-        <span>{{ accountByUserId.lastChange.substring(0, 10) }}</span>
+        Precio:
+        <span>${{ getProduct.price }} </span>
       </h2>
       <h2>
-        Hora Ultimo Movimiento:
-        <span>{{ accountByUserId.lastChange.substring(11, 19) }}</span>
+        Nombre del prducto:
+        <span>${{ getProduct.name }} </span>
       </h2>
+         <input
+          type="text"
+        
+          placeholder="Id Usuario Destino"
+        />
     </div>
   </div>
 </template>
@@ -27,10 +32,13 @@ export default {
 
   data: function () {
     return {
-      username: "none",
-      accountByUserId: {
-        balance: "null",
-        lastChange: "null",
+     // username: "none",
+  
+      getProduct: {
+        id: "null",
+        name: "null",
+        quantity:"null",
+        price:"null"
       }
     };
   },
@@ -40,19 +48,22 @@ export default {
   },
 
   apollo: {
-    accountByUserId: {
+    getProduct: {
       query: gql`
-        query ($accountByUserIdUserId: String!) {
-          accountByUserId(userId: $accountByUserIdUserId) {
-            balance
-            lastChange
-            userId
-          }
-        }
+      query Query($getProductUserId: String!, $getProductId: String!) {
+        getProduct(userId: $getProductUserId, id: $getProductId) {
+        id
+        name
+        quantity
+        price
+  }
+}
       `,
       variables() {
         return {
-          accountByUserIdUserId: localStorage.getItem("user_id"),
+          getProductUserId: localStorage.getItem("user_id"),
+
+          getProductId:"10"
         };
       },
     },
