@@ -1,29 +1,31 @@
 <template>
   <div id="AuthUser" class="auth_user">
     <div class="container_auth_user">
-      <h2>Autenticarse</h2>
+      <h2>Autenticación</h2>
+      <br />
       <form v-on:submit.prevent="processAuthUser">
         <div class="form-group">
-          <label for="userInputUsername">Username</label>
+          <label for="userInputUsername">Nombre de Usuario</label>
           <input
-            class="form-control"
             type="text"
-            v-model="user_in.username"
+            class="form-control"
+            id="userInputUsername"
             placeholder="Username"
+            v-model="user_in.username"
           />
         </div>
         <div class="form-group">
-          <label for="userInputPassword">Password</label>
+          <label for="userInputPassword">Contraseña</label>
           <input
-            class="form-control"
             type="password"
-            v-model="user_in.password"
+            class="form-control"
+            id="userInputPassword"
             placeholder="Password"
+            v-model="user_in.password"
           />
-          <br />
         </div>
-
-        <button class="btn btn-primary" type="submit">Iniciar Sesion</button>
+        <br />
+        <button type="submit" class="btn submit-button">Iniciar Sesion</button>
       </form>
     </div>
   </div>

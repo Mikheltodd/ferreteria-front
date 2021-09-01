@@ -1,29 +1,43 @@
 <template>
   <div id="app" class="app">
-    <header>
-      <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand logotype" href="#">
-            <img src="../public/assets/Logo.png" alt="Logo Ferretería" />
-            <h1>Ferretería</h1>
-          </a>
-          <ul class="nav nav-tabs nav-fill">
+    <header class="container-fluid">
+      <div class="logotype">
+        <a href="#">
+          <img src="../public/assets/Logo.png" alt="Logo Ferretería" />
+        </a>
+        <span>Ferretería</span>
+      </div>
+
+      <div class="navigation-container">
+        <nav class="navbar">
+          <ul class="nav nav-tabs">
             <li class="nav-item">
               <a class="nav-link" v-on:click="init" v-if="is_auth">Inicio</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" v-on:click="account" v-if="is_auth"
+
+            <li class="nav-item dropdown" v-if="is_auth">
+              <a
+                class="nav-link dropdown-toggle"
+                data-toggle="dropdown"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
                 >Productos</a
               >
+              <div class="dropdown-menu">
+                <a class="dropdown-item" v-if="is_auth">Listar Productos</a>
+                <a class="dropdown-item" v-on:click="account" v-if="is_auth"
+                  >Consultar</a
+                >
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" v-on:click="historial" v-if="is_auth"
+                  >Eliminar</a
+                >
+              </div>
             </li>
             <li class="nav-item">
               <a class="nav-link" v-on:click="transacction" v-if="is_auth"
                 >Transacciones</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" v-on:click="historial" v-if="is_auth"
-                >Eliminar</a
               >
             </li>
             <li class="nav-item">
@@ -32,17 +46,15 @@
               >
             </li>
           </ul>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </header>
 
     <div class="main-component">
       <router-view v-on:log-in="logIn"></router-view>
     </div>
 
-    <footer
-      class="flex-wrap justify-content-between align-items-center bg-dark"
-    >
+    <footer class="container-fluid">
       <span class="text-white">&copy; 2021 Company, Inc</span>
     </footer>
   </div>
@@ -102,7 +114,6 @@ export default {
       localStorage.setItem("refresh_token", data.refresh);
       localStorage.setItem("user_id", data.userId);
       localStorage.setItem("current_username", username);
-     
 
       await this.updateAccessToken();
       if (this.is_auth) this.init();

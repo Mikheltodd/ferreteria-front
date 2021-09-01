@@ -15,11 +15,7 @@
         Nombre del prducto:
         <span>${{ getProduct.name }} </span>
       </h2>
-         <input
-          type="text"
-        
-          placeholder="Id Usuario Destino"
-        />
+      <input type="text" placeholder="Id Usuario Destino" />
     </div>
   </div>
 </template>
@@ -32,14 +28,14 @@ export default {
 
   data: function () {
     return {
-     // username: "none",
-  
+      // username: "none",
+
       getProduct: {
         id: "null",
         name: "null",
-        quantity:"null",
-        price:"null"
-      }
+        quantity: "null",
+        price: "null",
+      },
     };
   },
 
@@ -50,20 +46,20 @@ export default {
   apollo: {
     getProduct: {
       query: gql`
-      query Query($getProductUserId: String!, $getProductId: String!) {
-        getProduct(userId: $getProductUserId, id: $getProductId) {
-        id
-        name
-        quantity
-        price
-  }
-}
+        query Query($getProductUserId: String!, $getProductId: String!) {
+          getProduct(userId: $getProductUserId, id: $getProductId) {
+            id
+            name
+            quantity
+            price
+          }
+        }
       `,
       variables() {
         return {
           getProductUserId: localStorage.getItem("user_id"),
 
-          getProductId:"10"
+          getProductId: "001",
         };
       },
     },
@@ -73,28 +69,5 @@ export default {
 
 
 <style>
-#Account {
-  width: 100%;
-  height: 120%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.container {
-  padding: 70px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 20px;
-}
-
-#Account h2 {
-  font-size: 30px;
-  color: #283747;
-}
-#Account span {
-  color: crimson;
-  font-weight: bold;
-}
+@import "../../public/assets/styles/components.css";
 </style>

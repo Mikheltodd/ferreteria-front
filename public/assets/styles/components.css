@@ -1,6 +1,67 @@
+.welcome-user{
+    display: flex;
+    padding: 1.5em;
+    background-color: rgba(255, 159, 67, 0.6);
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;   
+    font-weight: bold; 
+  }
+
+  .welcome-user span {
+    color: white;
+  }
+
+  
+
+.auth_user{
+    display: flex;
+    padding: 1.5em;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;   
+    
+}
+
+.container_auth_user {
+    display: flex;
+    border-radius: 10px;
+    padding: 1.5em 2.5em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    height: 100%;
+    width: auto;
+    justify-content: center;
+    align-items: center;   
+    font-weight: bold;
+    text-align: center;
+}
+
+.submit-button{
+    background-color: #0275d8;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.5s;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.submit-button:hover {
+    background-color: rgba(255, 159, 67, 1);  
+    color: black;
+  }
 
 
-/* .auth_user{
+  /* --------- */
+  /* .auth_user{
     margin: 0;
     padding: 0%;
     height: 100%;
@@ -63,4 +124,75 @@
     color: #E5E7E9;
     background: crimson;
     border: 1px solid #283747;
-} */
+}
+
+#Account {
+    width: 100%;
+    height: 120%;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .container {
+    padding: 70px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+  }
+  
+  #Account h2 {
+    font-size: 30px;
+    color: #283747;
+  }
+  #Account span {
+    color: crimson;
+    font-weight: bold;
+  } 
+  
+#User {
+    
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #User h2 {
+    font-size: 50px;
+    color: #283747;
+  }
+  
+  #User span {
+    color: crimson;
+    font-weight: bold;
+  }
+  
+#Account {
+    width: 100%;
+    height: 120%;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .container {
+    padding: 70px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+  }
+  
+  #Account h2 {
+    font-size: 30px;
+    color: #283747;
+  }
+  #Account span {
+    color: crimson;
+    font-weight: bold;
+  }
+
+  */
