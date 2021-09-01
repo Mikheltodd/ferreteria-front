@@ -25,12 +25,17 @@
                 >Productos</a
               >
               <div class="dropdown-menu">
-                <a class="dropdown-item" v-if="is_auth">Listar Productos</a>
-                <a class="dropdown-item" v-on:click="account" v-if="is_auth"
+                <a class="dropdown-item" v-on:click="init" v-if="is_auth"
+                  >Listar</a
+                >
+                <a
+                  class="dropdown-item"
+                  v-on:click="queryproduct"
+                  v-if="is_auth"
                   >Consultar</a
                 >
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" v-on:click="historial" v-if="is_auth"
+                <a class="dropdown-item" v-on:click="init" v-if="is_auth"
                   >Eliminar</a
                 >
               </div>
@@ -112,7 +117,7 @@ export default {
     logIn: async function (data, username) {
       localStorage.setItem("access_token", data.access);
       localStorage.setItem("refresh_token", data.refresh);
-      localStorage.setItem("user_id", data.userId);
+      localStorage.setItem("user_id", data.user_id);
       localStorage.setItem("current_username", username);
 
       await this.updateAccessToken();
@@ -129,6 +134,13 @@ export default {
     account: function () {
       this.$router.push({
         name: "account",
+        params: { username: localStorage.getItem("current_username") },
+      });
+    },
+
+    queryproduct: function () {
+      this.$router.push({
+        name: "queryproduct",
         params: { username: localStorage.getItem("current_username") },
       });
     },
