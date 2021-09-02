@@ -26,10 +26,10 @@ export default {
     return {
       productId: "none",
       getProduct: {
-        id: " - ",
-        name: " - ",
-        quantity: " - ",
-        price: " - ",
+        id: null,
+        name: null,
+        quantity: null,
+        price: null,
       },
     };
   },
