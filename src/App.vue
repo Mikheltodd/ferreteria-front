@@ -35,7 +35,9 @@
                   >Consultar</a
                 >
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" v-on:click="init" v-if="is_auth"
+                <a class="dropdown-item"
+                v-on:click="DeleteProduct" 
+                v-if="is_auth"
                   >Eliminar</a
                 >
               </div>
@@ -141,6 +143,13 @@ export default {
     queryproduct: function () {
       this.$router.push({
         name: "queryproduct",
+        params: { username: localStorage.getItem("current_username") },
+      });
+    },
+
+  DeleteProduct: function () {
+      this.$router.push({
+        name: "DeleteProduct",
         params: { username: localStorage.getItem("current_username") },
       });
     },

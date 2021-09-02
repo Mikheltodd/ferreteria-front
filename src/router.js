@@ -7,7 +7,7 @@ import QueryProduct from "./components/QueryProduct";
 import Product from "./components/Product";
 import Historial from "./components/Historial";
 import Transacction from "./components/Transacction.vue";
-
+import DeleteProduct from "./components/DeleteProduct";
 const routes = [
   {
     path: "/",
@@ -36,10 +36,18 @@ const routes = [
     component: QueryProduct,
   },
 
+  
+
   {
     path: "/products/:productId",
     name: "product",
     component: Product,
+  },
+
+  {
+    path: "/deleteProducts/",
+    name: "DeleteProduct",
+    component: DeleteProduct,
   },
   {
     path: "/historial/:username",
