@@ -35,9 +35,9 @@ export default {
     };
   },
 
-  // created: function () {
-  //   this.inputProductId = this.$route.params.inputProductId;
-  // },
+  created: function () {
+    this.inputProductId = this.$route.params.inputProductId;
+  },
 
   methods: {
     deleteProducts: async function () {
@@ -50,7 +50,7 @@ export default {
           `,
           variables: {
             deleteProductUserId: localStorage.getItem("user_id"),
-            deleteProductId:"1"
+            deleteProductId:this.inputProductId
           },
         })
         .then((result) => {

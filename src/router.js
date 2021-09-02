@@ -4,6 +4,7 @@ import User from "./components/User";
 import UserAuth from "./components/UserAuth";
 import Account from "./components/Account";
 import QueryProduct from "./components/QueryProduct";
+import CreateProduct from "./components/CreateProduct";
 import Product from "./components/Product";
 import Historial from "./components/Historial";
 import Transacction from "./components/Transacction.vue";
@@ -45,9 +46,16 @@ const routes = [
   },
 
   {
-    path: "/deleteProducts/",
+    path: "/products/delete/:productId",
     name: "DeleteProduct",
     component: DeleteProduct,
+  },
+  
+  {
+
+    path: "/products/create",
+    name: "createproduct",
+    component: CreateProduct,
   },
   {
     path: "/historial/:username",

@@ -25,8 +25,11 @@
                 >Productos</a
               >
               <div class="dropdown-menu">
-                <a class="dropdown-item" v-on:click="init" v-if="is_auth"
-                  >Listar</a
+                <a
+                  class="dropdown-item"
+                  v-on:click="createproduct"
+                  v-if="is_auth"
+                  >Crear</a
                 >
                 <a
                   class="dropdown-item"
@@ -150,6 +153,14 @@ export default {
   DeleteProduct: function () {
       this.$router.push({
         name: "DeleteProduct",
+
+        params: { username: localStorage.getItem("current_username") },
+      });
+    },
+    
+    createproduct: function () {
+      this.$router.push({
+        name: "createproduct",
         params: { username: localStorage.getItem("current_username") },
       });
     },
