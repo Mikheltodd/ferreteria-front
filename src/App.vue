@@ -40,7 +40,7 @@
                 <div class="dropdown-divider"></div>
                 <a
                   class="dropdown-item"
-                  v-on:click="DeleteProduct"
+                  v-on:click="deleteproduct"
                   v-if="is_auth"
                   >Eliminar</a
                 >
@@ -151,10 +151,9 @@ export default {
       });
     },
 
-    DeleteProduct: function () {
+    deleteproduct: function () {
       this.$router.push({
-        name: "DeleteProduct",
-
+        name: "deleteproduct",
         params: { username: localStorage.getItem("current_username") },
       });
     },

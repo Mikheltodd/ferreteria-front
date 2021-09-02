@@ -1,18 +1,26 @@
 <template>
-  <div id="Product" class="auth_user">
-    <div class="container_auth_user">
-      <label>Código de Producto: </label>
-      <span> {{ getProduct.id }} </span>
-      <br />
-      <label>Producto: </label>
-      <span> {{ getProduct.name }} </span>
-      <br />
-      <label>Cantidad: </label>
-      <span> {{ getProduct.quantity }} </span>
-      <br />
-      <label>Precio: </label>
-      <span>${{ getProduct.price }} </span>
+  <div id="Product" class="auth_user" style="flex-direction: column">
+    <div class="card text-center">
+      <div class="card-header">Detalles del Producto</div>
+      <div class="card-body">
+        <h5 class="card-title">{{ getProduct.name }}</h5>
+        <p class="card-text">
+          <br />
+          Cantidad: <span> {{ getProduct.quantity }} </span>
+          <br />
+          Precio: $ <span> {{ getProduct.price }} </span>
+          <br />
+        </p>
+      </div>
+      <div class="card-footer text-muted">
+        Código: <span> {{ getProduct.id }} </span>
+      </div>
     </div>
+    <br />
+    <button type="submit" class="btn submit-button" v-on:click="queryproduct">
+      Consultar <br />
+      Otro Producto
+    </button>
   </div>
 </template>
 
@@ -56,6 +64,15 @@ export default {
           getProductId: this.productId,
         };
       },
+    },
+  },
+
+  methods: {
+    queryproduct: function () {
+      this.$router.push({
+        name: "queryproduct",
+        params: { username: localStorage.getItem("current_username") },
+      });
     },
   },
 };

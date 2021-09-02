@@ -13,7 +13,14 @@
     color: white;
   }
 
-  
+  #User span{
+    color: rgba(255, 159, 67, 1);
+    font-weight: bold;
+  }
+
+  #User p{
+    font-size: 1.25em;
+  }
 
 .auth_user{
     display: flex;
@@ -49,7 +56,7 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    transition-duration: 0.5s;
+    transition-duration: 0.25s;
     cursor: pointer;
     font-weight: bold;
 }

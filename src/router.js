@@ -5,9 +5,9 @@ import UserAuth from "./components/UserAuth";
 import Product from "./components/Product";
 import QueryProduct from "./components/QueryProduct";
 import CreateProduct from "./components/CreateProduct";
+import DeleteProduct from "./components/DeleteProduct";
 import Transaction from "./components/Transaction.vue";
 
-import DeleteProduct from "./components/DeleteProduct";
 const routes = [
   {
     path: "/",
@@ -41,8 +41,8 @@ const routes = [
     component: CreateProduct,
   },
   {
-    path: "/products/delete/:productId",
-    name: "DeleteProduct",
+    path: "/products/delete",
+    name: "deleteproduct",
     component: DeleteProduct,
   },
   {
