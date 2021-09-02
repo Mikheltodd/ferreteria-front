@@ -11,7 +11,11 @@
           v-model="inputProductId"
         />
         <br />
-        <button type="submit" class="btn submit-button" v-on:click="deleteProducts">
+        <button
+          type="submit"
+          class="btn submit-button"
+          v-on:click="deleteProducts"
+        >
           Eliminar Producto
         </button>
       </div>
@@ -28,10 +32,8 @@ export default {
   data: function () {
     return {
       deleteProduct: {
-          id: " - ",
-
-      }
-
+        id: null,
+      },
     };
   },
 
@@ -44,21 +46,26 @@ export default {
       await this.$apollo
         .mutate({
           mutation: gql`
-          mutation Mutation($deleteProductUserId: String!, $deleteProductId: String!) {
-  deleteProduct(userId: $deleteProductUserId, id: $deleteProductId)
-}
+            mutation Mutation(
+              $deleteProductUserId: String!
+              $deleteProductId: String!
+            ) {
+              deleteProduct(userId: $deleteProductUserId, id: $deleteProductId)
+            }
           `,
           variables: {
             deleteProductUserId: localStorage.getItem("user_id"),
-            deleteProductId:this.inputProductId
+            deleteProductId: this.inputProductId,
           },
         })
         .then((result) => {
-          alert("Producto eliminado")
+          alert("Producto eliminado");
         })
         .catch((error) => {
-            alert("Producto no encontrado para eliminar");
+          alert("Producto no encontrado para eliminar");
         });
+      this.$forceUpdate();
+      this.$router.go();
     },
   },
 };

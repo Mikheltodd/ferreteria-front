@@ -105,6 +105,8 @@ export default {
         .catch((error) => {
           alert("No se pudo crear el Producto");
         });
+      this.$forceUpdate();
+      this.$router.go();
     },
   },
 };
@@ -112,5 +114,4 @@ export default {
 
 
 <style>
-@import "../../public/assets/styles/components.css";
 </style>

@@ -2,12 +2,11 @@ import { createRouter, createWebHistory } from "vue-router";
 import App from "./App.vue";
 import User from "./components/User";
 import UserAuth from "./components/UserAuth";
-import Account from "./components/Account";
+import Product from "./components/Product";
 import QueryProduct from "./components/QueryProduct";
 import CreateProduct from "./components/CreateProduct";
-import Product from "./components/Product";
-import Historial from "./components/Historial";
-import Transacction from "./components/Transacction.vue";
+import Transaction from "./components/Transaction.vue";
+
 import DeleteProduct from "./components/DeleteProduct";
 const routes = [
   {
@@ -25,47 +24,31 @@ const routes = [
     name: "user",
     component: User,
   },
-  {
-    path: "/account/:username",
-    name: "account",
-    component: Account,
-  },
-
-  {
-    path: "/products/",
-    name: "queryproduct",
-    component: QueryProduct,
-  },
-
-  
 
   {
     path: "/products/:productId",
     name: "product",
     component: Product,
   },
-
   {
-    path: "/products/delete/:productId",
-    name: "DeleteProduct",
-    component: DeleteProduct,
+    path: "/products/",
+    name: "queryproduct",
+    component: QueryProduct,
   },
-  
   {
-
     path: "/products/create",
     name: "createproduct",
     component: CreateProduct,
   },
   {
-    path: "/historial/:username",
-    name: "historial",
-    component: Historial,
+    path: "/products/delete/:productId",
+    name: "DeleteProduct",
+    component: DeleteProduct,
   },
   {
-    path: "/transacction/:username",
-    name: "transacction",
-    component: Transacction,
+    path: "/transactions/new",
+    name: "transaction",
+    component: Transaction,
   },
 ];
 

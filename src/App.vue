@@ -38,15 +38,16 @@
                   >Consultar</a
                 >
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item"
-                v-on:click="DeleteProduct" 
-                v-if="is_auth"
+                <a
+                  class="dropdown-item"
+                  v-on:click="DeleteProduct"
+                  v-if="is_auth"
                   >Eliminar</a
                 >
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" v-on:click="transacction" v-if="is_auth"
+              <a class="nav-link" v-on:click="transaction" v-if="is_auth"
                 >Transacciones</a
               >
             </li>
@@ -150,14 +151,14 @@ export default {
       });
     },
 
-  DeleteProduct: function () {
+    DeleteProduct: function () {
       this.$router.push({
         name: "DeleteProduct",
 
         params: { username: localStorage.getItem("current_username") },
       });
     },
-    
+
     createproduct: function () {
       this.$router.push({
         name: "createproduct",
@@ -165,9 +166,9 @@ export default {
       });
     },
 
-    transacction: function () {
+    transaction: function () {
       this.$router.push({
-        name: "transacction",
+        name: "transaction",
         params: { username: localStorage.getItem("current_username") },
       });
     },
